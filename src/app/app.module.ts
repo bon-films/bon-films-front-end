@@ -13,6 +13,7 @@ import { ForgotComponent } from './components/auth/forgot/forgot.component';
 import { VerifyComponent } from './components/auth/verify/verify.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './services/firebase/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AuthService } from './services/firebase/auth.service';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    BrowserAnimationsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
