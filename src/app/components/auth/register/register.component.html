@@ -1,4 +1,21 @@
-<div class="displayTable">
+<body class="text-center">
+  <form class="form-register" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h1 class="h3 mb-3 font-weight-normal">Register for an Account</h1>
+    <input formControlName="email"  type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus="">
+    <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <button class="btn btn-lg btn-info btn-block" type="submit">Register</button> 
+
+    <hr class="solid">
+
+    <div style="float: right; cursor: pointer;">
+      <span class="text-secondary" routerLink="/login">Return to Login</span>
+    </div>
+
+  </form>
+</body>
+
+
+<!-- <div class="displayTable">
     <div class="displayTableCell">
   
       <div class="authBlock">
@@ -20,7 +37,6 @@
           <span class="or"><span class="orInner">Or</span></span>
         </div>
   
-        <!-- Continue with Google -->
         <div class="formGroup">
           <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
             <i class="fab fa-google-plus-g"></i>
@@ -33,4 +49,4 @@
       </div>
     </div>
   
-  </div>
+  </div> -->

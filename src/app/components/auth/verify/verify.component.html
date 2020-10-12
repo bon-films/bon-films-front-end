@@ -1,4 +1,19 @@
-<div class="displayTable">
+<body class="text-center">
+  <div class="form-verify">
+    <h1 class="h3 mb-3 font-weight-normal">Register for an Account</h1>
+
+    <div *ngIf="authService.userData as user">
+      <p>We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+      <p>Please check your email and click on the link to verify your email address.</p>
+    </div>
+
+    <button class="btn btn-lg btn-info btn-block" routerLink="/login">
+      Return to Login
+    </button> 
+  </div>
+</body>
+
+<!-- <div class="displayTable">
     <div class="displayTableCell">
   
       <div class="authBlock">
@@ -8,8 +23,7 @@
           <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
           <p class="text-center">Please check your email and click on the link to verify your email address.</p>
         </div>
-  
-        <!-- Calling SendVerificationMail() method using authService Api -->
+
         <div class="formGroup">
           <button type="button" class="btn btnPrimary" (click)="authService.SendVerificationMail()">
             <i class="fas fa-redo-alt"></i>
@@ -24,4 +38,4 @@
       </div>
   
     </div>
-  </div>
+  </div> -->
