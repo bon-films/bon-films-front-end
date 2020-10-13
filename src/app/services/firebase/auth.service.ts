@@ -31,26 +31,26 @@ export class AuthService {
     })
   }
 
-  SignIn(email, password) {
-    return this.afAuth.signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['home']);
-        });
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message)
-      })
+  async SignIn(email, password) {
+    try {
+      const result = await this.afAuth.signInWithEmailAndPassword(email, password);
+      this.ngZone.run(() => {
+        this.router.navigate(['home']);
+      });
+      this.SetUserData(result.user);
+    } catch (error) {
+      window.alert(error.message);
+    }
   }
 
-  SignUp(email, password) {
-    return this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.SendVerificationMail();
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error.message)
-      })
+  async SignUp(email, password) {
+    try {
+      const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
+      this.SendVerificationMail();
+      this.SetUserData(result.user);
+    } catch (error) {
+      window.alert(error.message);
+    }
   }
 
   async SendVerificationMail() {
@@ -60,13 +60,13 @@ export class AuthService {
       })
   }
 
-  ForgotPassword(passwordResetEmail) {
-    return this.afAuth.sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        window.alert('Password reset email sent, please check your inbox.');
-      }).catch((error) => {
-        window.alert(error)
-      })
+  async ForgotPassword(passwordResetEmail) {
+    try {
+      await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
+      window.alert('Password reset email sent, please check your inbox.');
+    } catch (error) {
+      window.alert(error);
+    }
   }
 
   //sign in with Google
@@ -74,16 +74,16 @@ export class AuthService {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
-  AuthLogin(provider) {
-    return this.afAuth.signInWithPopup(provider)
-      .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['home']);
-        })
-        this.SetUserData(result.user);
-      }).catch((error) => {
-        window.alert(error)
-      })
+  async AuthLogin(provider) {
+    try {
+      const result = await this.afAuth.signInWithPopup(provider);
+      this.ngZone.run(() => {
+        this.router.navigate(['home']);
+      });
+      this.SetUserData(result.user);
+    } catch (error) {
+      window.alert(error);
+    }
   }
 
   get isLoggedIn(): boolean {
@@ -91,11 +91,16 @@ export class AuthService {
     return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
-  SignOut() {
-    return this.afAuth.signOut().then(() => {
-      localStorage.removeItem('user');
-      this.router.navigate(['login']);
-    })
+  async getToken() {
+    return (await this.afAuth.currentUser).getIdToken().then(
+      (token) => token.toString()
+    );
+  }
+
+  async SignOut() {
+    await this.afAuth.signOut();
+    localStorage.removeItem('user');
+    this.router.navigate(['login']);
   }
 
   //save userData as an object in AngularFireStore
