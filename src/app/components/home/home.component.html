@@ -1,12 +1,90 @@
-<!-- Top navigation -->
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-student">
-      <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
-      <span class="dasboard-text">Dashboard</span>
-    </a>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <title>COMP586 · Home</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
+    <a class="navbar-brand" routerLink="/home">COMP586</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">All Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Create a New Recipe</a>
+        </li>
+      </ul>
+      
+      <div class="btn-group" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-info dropdown-toggle"
+                aria-controls="dropdown-basic" *ngIf="authService.userData as user">
+                {{(user.displayName) ? user.displayName : 'User'}} <span class="caret"></span>
+        </button>
+        <ul id="dropdown-alignment" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+            role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><a class="dropdown-item" href="#">View Account</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">My Recipes</a></li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a class="dropdown-item" href="#" (click)="authService.SignOut()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
-  
-  <!-- Sidebar navigation -->
+
+  <main role="main">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container" *ngIf="authService.userData as user">
+        <h1 class="display-3">TEMP UNTIL BACKEND IS UP</h1>
+        <p>Name: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></p>
+        <p>User ID: <strong>{{user.uid}}</strong></p>
+        <p>Email: <strong>{{user.email}}</strong></p>
+        <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Recipe 2</h2>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
+            dui.
+          </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Recipe 3</h2>
+          <p>
+            Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
+            dui.
+          </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Recipe 4</h2>
+          <p>
+            Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
+            sit amet risus.
+          </p>
+          <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+<!-- Sidebar navigation
   <div class="container-fluid">
     <div class="row">
   
@@ -18,7 +96,7 @@
                 <i class="fas fa-user"></i>User Profile
               </a>
             </li>
-            <!-- Calling SignOut() Api from AuthService -->
+            Calling SignOut() Api from AuthService
             <li class="nav-item">
               <a class="nav-link" (click)="authService.SignOut()">
                 <i class="fas fa-sign-out-alt"></i>Log out
@@ -28,14 +106,14 @@
         </div>
       </nav>
   
-      <!-- Main content -->
+      Main content
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <div class="inner-adjust">
   
           <div class="pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">User Profile</h1>
           </div>
-          <!-- Show user data when logged in -->
+          Show user data when logged in
           <div class="row" *ngIf="authService.userData as user">
             <div class="col-md-12">
               <div class="media">
@@ -55,4 +133,4 @@
       </main>
   
     </div>
-  </div>
+  </div> -->

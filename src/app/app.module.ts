@@ -15,7 +15,10 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthService } from './services/firebase/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 import { ReactiveFormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 @NgModule({
@@ -35,7 +38,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFirestoreModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
