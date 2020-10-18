@@ -11,12 +11,12 @@ import { AuthGuard } from './services/guard/auth.guard';
 import { SecureInnerPagesGuard } from './services/guard/secure-inner-pages.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent, /* canActivate: [AuthGuard] */ },
   { path: 'login', component: LoginComponent, /* canActivate: [SecureInnerPagesGuard] */ },
   { path: 'register', component: RegisterComponent, /* canActivate: [SecureInnerPagesGuard] */ },
   { path: 'forgot-password', component: ForgotComponent, /* canActivate: [SecureInnerPagesGuard] */ },
   { path: 'verify-email', component: VerifyComponent, /* canActivate: [SecureInnerPagesGuard] */ },
-  { path: 'home', component: HomeComponent, /* canActivate: [AuthGuard] */ }
 ];
 
 @NgModule({

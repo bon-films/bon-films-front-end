@@ -100,7 +100,7 @@ export class AuthService {
   async SignOut() {
     await this.afAuth.signOut();
     localStorage.removeItem('user');
-    this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
 
   //save userData as an object in AngularFireStore
