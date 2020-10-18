@@ -19,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ViewAccountComponent } from './components/view-account/view-account.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     ForgotComponent,
     VerifyComponent,
     HomeComponent,
+    ViewAccountComponent,
   ],
   imports: [
     BrowserModule,

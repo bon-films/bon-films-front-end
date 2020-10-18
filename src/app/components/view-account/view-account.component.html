@@ -1,0 +1,12 @@
+<main role="main">
+    <div class="jumbotron">
+      <div class="container" *ngIf="authService.userData as user">
+        <h1 class="display-3"> <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+        <h5>User ID: <strong>{{user.uid}}</strong></h5>
+        <h5>Email: <strong>{{user.email}}</strong></h5>
+        <h5>Email Verified: <strong>{{user.emailVerified}}</strong></h5>
+        <p><a class="btn btn-info btn-lg" href="#" role="button">Edit</a></p>
+      </div>
+    </div>
+</main>
+  
