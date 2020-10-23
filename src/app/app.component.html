@@ -1,14 +1,14 @@
 <!-- display navbar for all routes -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info">
-  <a class="navbar-brand" routerLink="/home">Bon Cuisine!</a>
+  <a class="navbar-brand" routerLink="/home">Bon Films!</a>
 
   <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">All Recipes</a>
+        <a class="nav-link" href="#">All Reviews</a>
       </li>
       <li class="nav-item" *ngIf="authService.userData">
-        <a class="nav-link" href="#">Create a New Recipe</a>
+        <a class="nav-link" href="#">Create a New Review</a>
       </li>
     </ul>
     
@@ -21,7 +21,7 @@
       <ul id="dropdown-alignment" *dropdownMenu class="dropdown-menu dropdown-menu-right"
           role="menu" aria-labelledby="button-basic">
         <li role="menuitem"><a class="dropdown-item" routerLink="/view-account">View Account</a></li>
-        <li role="menuitem"><a class="dropdown-item" href="#">My Recipes</a></li>
+        <li role="menuitem"><a class="dropdown-item" href="#">My Reviews</a></li>
         <li class="divider dropdown-divider"></li>
         <li role="menuitem"><a class="dropdown-item" href="#" (click)="authService.SignOut()">Logout</a>
         </li>

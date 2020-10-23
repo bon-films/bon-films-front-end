@@ -7,7 +7,7 @@ import { AuthService } from './services/firebase/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Bon Cuisine!';
+  title = 'Bon Films!';
 
   constructor(
     public authService: AuthService
