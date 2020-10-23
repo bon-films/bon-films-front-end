@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Review } from 'src/app/common/review';
+import { Review } from 'src/app/models/review';
 import { ReviewService } from 'src/app/services/review/review.service';
 
 @Component({
