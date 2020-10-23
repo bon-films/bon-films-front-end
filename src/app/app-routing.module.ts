@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AllReviewsComponent } from './components/all-reviews/all-reviews.component';
 
 import { ForgotComponent } from './components/auth/forgot/forgot.component';
 import { LoginComponent } from './components/auth/login/login.component';
@@ -14,6 +15,7 @@ import { SecureInnerPagesGuard } from './services/guard/secure-inner-pages.guard
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, /* canActivate: [AuthGuard] */ },
+  { path: 'all-reviews', component: AllReviewsComponent, },
   { path: 'login', component: LoginComponent, /* canActivate: [SecureInnerPagesGuard] */ },
   { path: 'register', component: RegisterComponent, /* canActivate: [SecureInnerPagesGuard] */ },
   { path: 'forgot-password', component: ForgotComponent, /* canActivate: [SecureInnerPagesGuard] */ },

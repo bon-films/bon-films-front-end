@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ViewAccountComponent } from './components/view-account/view-account.component';
+import { AllReviewsComponent } from './components/all-reviews/all-reviews.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ReviewService } from './services/review/review.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,8 @@ import { ViewAccountComponent } from './components/view-account/view-account.com
     VerifyComponent,
     HomeComponent,
     ViewAccountComponent,
+    AllReviewsComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,8 +47,9 @@ import { ViewAccountComponent } from './components/view-account/view-account.com
     FontAwesomeModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
+    HttpClientModule,
   ],
-  providers: [AuthService],
+  providers: [AuthService, ReviewService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
