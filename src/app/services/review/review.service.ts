@@ -9,14 +9,16 @@ import { Review } from 'src/app/models/review';
 })
 export class ReviewService {
 
-  private baseUrl = 'http://localhost:8080/api/reviews';
-
   constructor(private httpClient: HttpClient) { }
 
   getAllReviews(): Observable<Review[]> {
-    return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
+    return this.httpClient.get<GetResponse>(`http://localhost:8080/api/reviews`).pipe(
       map(response => response._embedded.reviews)
     );
+  }
+
+  getReviewById(id: String): Observable<Review> {
+    return this.httpClient.get<Review>(`http://localhost:8080/api/review/${id}`);
   }
 }
 
