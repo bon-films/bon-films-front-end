@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Review } from 'src/app/models/review';
 import { ReviewService } from 'src/app/services/review/review.service';
 
@@ -10,7 +11,9 @@ import { ReviewService } from 'src/app/services/review/review.service';
 export class AllReviewsComponent implements OnInit {
   reviews: Review[];
 
-  constructor(private reviewService: ReviewService) { }
+  constructor(
+    private reviewService: ReviewService,
+  ) { }
 
   ngOnInit(): void {
     this.getAllReviews();

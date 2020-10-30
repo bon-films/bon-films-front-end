@@ -1,29 +1,38 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Review } from 'src/app/models/review';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReviewService {
+  private baseUrl = environment.baseUrl;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getAllReviews(): Observable<Review[]> {
-    return this.httpClient.get<GetResponse>(`http://localhost:8080/api/reviews`).pipe(
-      map(response => response._embedded.reviews)
-    );
+    return this.http.get<Review[]>(this.baseUrl + '/reviews');
   }
 
   getReviewById(id: String): Observable<Review> {
-    return this.httpClient.get<Review>(`http://localhost:8080/api/review/${id}`);
+    return this.http.get<Review>(this.baseUrl + `/review/${id}`);
   }
 }
 
-interface GetResponse {
-  _embedded: {
-    reviews: Review[];
-  }
-}
+const httpsOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
+
+const httpOptionsWithAuthToken = token => ({
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'AuthToken': token,
+  }),
+});
