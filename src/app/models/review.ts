@@ -5,6 +5,6 @@ export interface Review {
     rating: number;
     review: String;
     userReviewedId: String;
-    film: Film
+    title: String
     dateReviewed: Date;
 }
