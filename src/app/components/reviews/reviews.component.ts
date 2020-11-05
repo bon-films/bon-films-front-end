@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Review } from 'src/app/models/review';
+import { FilmReview } from 'src/app/models/film-review';
 import { ReviewService } from 'src/app/services/review/review.service';
 
 @Component({
-  selector: 'app-all-reviews',
-  templateUrl: './all-reviews.component.html',
-  styleUrls: ['./all-reviews.component.scss']
+  selector: 'app-reviews',
+  templateUrl: './reviews.component.html',
+  styleUrls: ['./reviews.component.scss']
 })
-export class AllReviewsComponent implements OnInit {
-  reviews: Review[];
+export class ReviewsComponent implements OnInit {
+
+  filmReviews: FilmReview[];
 
   constructor(
     private reviewService: ReviewService,
@@ -22,7 +23,7 @@ export class AllReviewsComponent implements OnInit {
   getAllReviews() {
     this.reviewService.getAllReviews().subscribe(
       data => {
-        this.reviews = data;
+        this.filmReviews = data;
       }
     );
   }

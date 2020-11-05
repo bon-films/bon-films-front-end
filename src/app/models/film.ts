@@ -1,3 +1,5 @@
+import { Review } from './review';
+
 export interface Film {
     id: number;
     title: String;
@@ -6,4 +8,5 @@ export interface Film {
     director: String;
     topBilling: String;
     synopsis: String;
+    reviews: Review[];
 }

@@ -17,13 +17,13 @@ import { AuthService } from './services/firebase/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ViewAccountComponent } from './components/view-account/view-account.component';
-import { AllReviewsComponent } from './components/all-reviews/all-reviews.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReviewService } from './services/review/review.service';
+import { ReviewDetailsComponent } from './components/review-details/review-details.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,9 @@ import { ReviewService } from './services/review/review.service';
     VerifyComponent,
     HomeComponent,
     ViewAccountComponent,
-    AllReviewsComponent,
     NavbarComponent,
+    ReviewDetailsComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,

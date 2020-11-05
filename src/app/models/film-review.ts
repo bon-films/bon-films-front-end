@@ -1,10 +1,8 @@
-import { Film } from './film';
-
-export interface Review {
+export interface FilmReview {
     id: number;
     rating: number;
     review: String;
     userReviewedId: String;
-    film: Film;
+    title: String
     dateReviewed: Date;
 }

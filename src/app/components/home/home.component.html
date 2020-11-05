@@ -1,93 +1,41 @@
 <main role="main">
-  <!-- Main jumbotron for the first recipe in the database -->
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">Review 1</h1>
-      <p>
-        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
-        dui.
-      </p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      <h1 class="display-3">{{filmReviews[0].title}}</h1>
+      <h4>Score: {{ filmReviews[0].rating }} / 10</h4>
+      <h6> {{ filmReviews[0].review }} </h6>
+      <p>Reviewed by: {{ filmReviews[0].userReviewedId }} | {{filmReviews[0].dateReviewed}}</p>
+      <p><a class="btn btn-secondary" [routerLink]="[ '/review', filmReviews[0].id]" role="button">Review details &raquo;</a></p>
     </div>
   </div>
 
   <div class="container">
     <div class="row">
+
       <div class="col-md-4">
-        <h2>Review 2</h2>
-        <p>
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
-          dui.
-        </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <h2>{{filmReviews[1].title}}</h2>
+        <h5>Score: {{ filmReviews[1].rating }} / 10</h5>
+        <p> {{ filmReviews[1].review }} </p>
+        <p>Reviewed by: {{ filmReviews[1].userReviewedId }} | {{filmReviews[1].dateReviewed}}</p>
+        <p><a class="btn btn-secondary" [routerLink]="[ '/review', filmReviews[1].id]" role="button">Review details &raquo;</a></p>
       </div>
+
       <div class="col-md-4">
-        <h2>Review 3</h2>
-        <p>
-          Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
-          dui.
-        </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <h2>{{filmReviews[2].title}}</h2>
+        <h5>Score: {{ filmReviews[2].rating }} / 10</h5>
+        <p> {{ filmReviews[2].review }} </p>
+        <p>Reviewed by: {{ filmReviews[2].userReviewedId }} | {{filmReviews[2].dateReviewed}}</p>
+        <p><a class="btn btn-secondary" [routerLink]="[ '/review', filmReviews[2].id]" role="button">Review details &raquo;</a></p>
       </div>
+      
       <div class="col-md-4">
-        <h2>Review 4</h2>
-        <p>
-          Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo
-          sit amet risus.
-        </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+        <h2>{{filmReviews[3].title}}</h2>
+        <h5>Score: {{ filmReviews[3].rating }} / 10</h5>
+        <p> {{ filmReviews[3].review }} </p>
+        <p>Reviewed by: {{ filmReviews[3].userReviewedId }} | {{filmReviews[3].dateReviewed}}</p>
+        <p><a class="btn btn-secondary" [routerLink]="[ '/review', filmReviews[3].id]" role="button">Review details &raquo;</a></p>
       </div>
+
     </div>
   </div>
 </main>
-
-<!-- Sidebar navigation
-  <div class="container-fluid">
-    <div class="row">
-  
-      <nav class="col-md-2 d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active">
-                <i class="fas fa-user"></i>User Profile
-              </a>
-            </li>
-            Calling SignOut() Api from AuthService
-            <li class="nav-item">
-              <a class="nav-link" (click)="authService.SignOut()">
-                <i class="fas fa-sign-out-alt"></i>Log out
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-  
-      Main content
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="inner-adjust">
-  
-          <div class="pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">User Profile</h1>
-          </div>
-          Show user data when logged in
-          <div class="row" *ngIf="authService.userData as user">
-            <div class="col-md-12">
-              <div class="media">
-                <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
-                  alt="{{user.displayName}}">
-                <div class="media-body">
-                  <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-                  <p>User ID: <strong>{{user.uid}}</strong></p>
-                  <p>Email: <strong>{{user.email}}</strong></p>
-                  <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-        </div>
-      </main>
-  
-    </div>
-  </div> -->

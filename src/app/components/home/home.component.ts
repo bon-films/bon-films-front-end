@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FilmReview } from 'src/app/models/film-review';
 import { AuthService } from 'src/app/services/firebase/auth.service';
+import { ReviewService } from 'src/app/services/review/review.service';
 
 @Component({
   selector: 'app-home',
@@ -7,12 +9,24 @@ import { AuthService } from 'src/app/services/firebase/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  filmReviews: FilmReview[];
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    private reviewService: ReviewService
   ) { }
 
   ngOnInit(): void {
+    this.getAllReviews();
   }
 
+  getAllReviews() {
+    this.reviewService.getAllReviews().subscribe(
+      data => {
+        this.filmReviews = data;
+        this.filmReviews.reverse();
+      }
+    );
+  }
 }
+

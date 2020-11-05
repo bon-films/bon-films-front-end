@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { FilmReview } from 'src/app/models/film-review';
 import { Review } from 'src/app/models/review';
 import { environment } from '../../../environments/environment';
 
@@ -14,8 +15,8 @@ export class ReviewService {
     private http: HttpClient
   ) { }
 
-  getAllReviews(): Observable<Review[]> {
-    return this.http.get<Review[]>(this.baseUrl + '/reviews');
+  getAllReviews(): Observable<FilmReview[]> {
+    return this.http.get<FilmReview[]>(this.baseUrl + '/reviews');
   }
 
   getReviewById(id: String): Observable<Review> {
