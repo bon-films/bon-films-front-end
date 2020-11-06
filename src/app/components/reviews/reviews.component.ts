@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { FilmReview } from 'src/app/models/film-review';
 import { ReviewService } from 'src/app/services/review/review.service';
 

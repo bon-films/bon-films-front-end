@@ -8,6 +8,9 @@
         <a class="nav-link" routerLink="/reviews">All Reviews</a>
       </li>
       <li class="nav-item" *ngIf="authService.userData">
+        <a class="nav-link" routerLink="/films">All Films that are Reviewed</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.userData">
         <a class="nav-link" href="#">Create a New Review</a>
       </li>
     </ul>

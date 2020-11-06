@@ -24,6 +24,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReviewService } from './services/review/review.service';
 import { ReviewDetailsComponent } from './components/review-details/review-details.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
+import { FilmsComponent } from './components/films/films.component';
+import { ReviewsByFilmComponent } from './components/reviews-by-film/reviews-by-film.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ReviewsComponent } from './components/reviews/reviews.component';
     NavbarComponent,
     ReviewDetailsComponent,
     ReviewsComponent,
+    FilmsComponent,
+    ReviewsByFilmComponent,
   ],
   imports: [
     BrowserModule,
