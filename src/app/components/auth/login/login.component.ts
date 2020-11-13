@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    public fb: FormBuilder,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {

@@ -17,7 +17,7 @@ export class ForgotComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    public fb: FormBuilder,
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {

@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    public fb: FormBuilder
+    private fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
