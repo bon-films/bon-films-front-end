@@ -64,6 +64,7 @@ export class AuthService {
     try {
       await this.afAuth.sendPasswordResetEmail(passwordResetEmail);
       window.alert('Password reset email sent, please check your inbox.');
+      this.router.navigate(['login']);
     } catch (error) {
       window.alert(error);
     }

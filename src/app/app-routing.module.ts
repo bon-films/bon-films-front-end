@@ -5,6 +5,7 @@ import { ForgotComponent } from './components/auth/forgot/forgot.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { VerifyComponent } from './components/auth/verify/verify.component';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { FilmsComponent } from './components/films/films.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReviewDetailsComponent } from './components/review-details/review-details.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'review/:id', component: ReviewDetailsComponent, },
   { path: 'films', component: FilmsComponent },
   { path: 'film/:id/reviews', component: ReviewsByFilmComponent },
+  { path: 'create-review', component: CreateReviewComponent },
   { path: 'login', component: LoginComponent, /* canActivate: [SecureInnerPagesGuard] */ },
   { path: 'register', component: RegisterComponent, /* canActivate: [SecureInnerPagesGuard] */ },
   { path: 'forgot-password', component: ForgotComponent, /* canActivate: [SecureInnerPagesGuard] */ },

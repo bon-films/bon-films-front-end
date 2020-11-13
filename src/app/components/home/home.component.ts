@@ -11,6 +11,8 @@ import { ReviewService } from 'src/app/services/review/review.service';
 export class HomeComponent implements OnInit {
   filmReviews: FilmReview[];
 
+  rate = 10;
+
   constructor(
     public authService: AuthService,
     private reviewService: ReviewService

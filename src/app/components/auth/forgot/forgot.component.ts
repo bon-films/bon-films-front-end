@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/firebase/auth.service';
 
 @Component({
@@ -9,19 +9,25 @@ import { AuthService } from 'src/app/services/firebase/auth.service';
 })
 export class ForgotComponent implements OnInit {
 
-  forgotForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-  });
+  forgotForm: FormGroup;
 
   onSubmit(): void {
     this.authService.ForgotPassword(this.forgotForm.get('email').value);
   }
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    public fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
+    this.forgotForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+    });
+  }
+
+  get email() {
+    return this.forgotForm.get("email");
   }
 
 }

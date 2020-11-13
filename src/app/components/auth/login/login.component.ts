@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/firebase/auth.service';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
@@ -11,10 +11,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 export class LoginComponent implements OnInit {
   faGoogle = faGoogle;
 
-  loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-  });
+  loginForm: FormGroup;
 
   onSubmit(): void {
     this.authService.SignIn(this.loginForm.get('email').value, this.loginForm.get('password').value);
@@ -25,10 +22,24 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    public fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
   }
+
+  get email() {
+    return this.loginForm.get("email");
+  }
+
+  get password() {
+    return this.loginForm.get("password");
+  }
+
 
 }

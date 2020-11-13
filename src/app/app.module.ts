@@ -17,8 +17,9 @@ import { AuthService } from './services/firebase/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { ViewAccountComponent } from './components/view-account/view-account.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReviewService } from './services/review/review.service';
@@ -26,6 +27,10 @@ import { ReviewDetailsComponent } from './components/review-details/review-detai
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { FilmsComponent } from './components/films/films.component';
 import { ReviewsByFilmComponent } from './components/reviews-by-film/reviews-by-film.component';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
+
+import { RatingModule } from 'ngx-bootstrap/rating';
+import { AddFilmComponent } from './components/add-film/add-film.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +46,8 @@ import { ReviewsByFilmComponent } from './components/reviews-by-film/reviews-by-
     ReviewsComponent,
     FilmsComponent,
     ReviewsByFilmComponent,
+    CreateReviewComponent,
+    AddFilmComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,8 +57,11 @@ import { ReviewsByFilmComponent } from './components/reviews-by-film/reviews-by-
     AngularFirestoreModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
+    FormsModule,
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
+    RatingModule.forRoot(),
+    ModalModule.forRoot(),
     HttpClientModule,
   ],
   providers: [AuthService, ReviewService],

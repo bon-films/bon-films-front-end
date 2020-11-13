@@ -2,36 +2,21 @@
   <form class="form-forgot" [formGroup]="forgotForm" (ngSubmit)="onSubmit()">
     <h1 class="h3 mb-3 font-weight-normal">Password Reset</h1>
     <p>Please enter your email address to request a password reset.</p>
-    <input formControlName="email"  type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus="">
-    <button class="btn btn-lg btn-info btn-block" type="submit">Reset Password</button> 
+
+    <div class="form-group">
+      <div class="invalid-feedback d-block" *ngIf="email.invalid && email.touched">
+        The email is invalid.
+      </div>
+      <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address">
+    </div>
+
+    <button [disabled]="forgotForm.invalid" class="btn btn-lg btn-info btn-block" type="submit">Reset Password</button>
 
     <hr class="dashed">
 
     <div style="float: right; cursor: pointer;">
       <span class="text-secondary" routerLink="/login">Return to Login</span>
     </div>
+
   </form>
 </body>
-
-<!-- <div class="displayTable">
-    <div class="displayTableCell">
-      <div class="authBlock">
-        <h3>Reset Password</h3>
-  
-        <p class="text-center">Please enter your email address to request a password reset.</p>
-  
-        <div class="formGroup">
-          <input type="email" class="formControl" placeholder="Email Address" #passwordResetEmail required>
-        </div>
-  
-        <div class="formGroup">
-          <input type="submit" class="btn btnPrimary" value="Reset Password" (click)="authService.ForgotPassword(passwordResetEmail.value)">
-        </div>
-      </div>
-  
-      <div class="redirectToLogin">
-        <span>Go back to ? <span class="redirect" routerLink="/login">Log In</span></span>
-      </div>
-  
-    </div>
-  </div> -->

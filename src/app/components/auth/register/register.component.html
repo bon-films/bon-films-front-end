@@ -1,9 +1,20 @@
 <body class="text-center">
   <form class="form-register" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <h1 class="h3 mb-3 font-weight-normal">Register for an Account</h1>
-    <input formControlName="email"  type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus="">
-    <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <button class="btn btn-lg btn-info btn-block" type="submit">Register</button> 
+
+    <div class="form-group">
+      <div class="invalid-feedback d-block" *ngIf="email.invalid && email.touched">
+        The email is invalid.
+      </div>
+      <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address">
+
+      <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password">
+      <div class="invalid-feedback d-block" *ngIf="password.invalid && password.touched">
+        The password is invalid.
+      </div>
+    </div>
+
+    <button [disabled]="registerForm.invalid" class="btn btn-lg btn-info btn-block" type="submit">Register</button>
 
     <hr class="dashed">
 
@@ -13,40 +24,3 @@
 
   </form>
 </body>
-
-
-<!-- <div class="displayTable">
-    <div class="displayTableCell">
-  
-      <div class="authBlock">
-        <h3>Sign Up</h3>
-  
-        <div class="formGroup">
-          <input type="email" class="formControl" placeholder="Email Address" #userEmail required>
-        </div>
-  
-        <div class="formGroup">
-          <input type="password" class="formControl" placeholder="Password" #userPwd required>
-        </div>
-  
-        <div class="formGroup">
-          <input type="button" class="btn btnPrimary" value="Sign Up" (click)="authService.SignUp(userEmail.value, userPwd.value)">
-        </div>
-  
-        <div class="formGroup">
-          <span class="or"><span class="orInner">Or</span></span>
-        </div>
-  
-        <div class="formGroup">
-          <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-            <i class="fab fa-google-plus-g"></i>
-            Continue with Google
-          </button>
-        </div>
-  
-      <div class="redirectToLogin">
-        <span>Already have an account? <span class="redirect" routerLink="/login">Log In</span></span>
-      </div>
-    </div>
-  
-  </div> -->

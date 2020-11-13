@@ -7,22 +7,22 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/reviews">All Reviews</a>
       </li>
-      <li class="nav-item" *ngIf="authService.userData">
+      <li class="nav-item">
         <a class="nav-link" routerLink="/films">All Films that are Reviewed</a>
       </li>
       <li class="nav-item" *ngIf="authService.userData">
-        <a class="nav-link" href="#">Create a New Review</a>
+        <a class="nav-link" routerLink="/create-review">Create a New Review</a>
       </li>
     </ul>
-    
+
     <!-- show dropdown if user logged in -->
     <div class="btn-group" dropdown *ngIf="authService.userData as user">
       <button id="button-basic" dropdownToggle type="button" class="btn btn-info dropdown-toggle"
-              aria-controls="dropdown-basic">
-              {{(user.displayName) ? user.displayName : 'User'}} <span class="caret"></span>
+        aria-controls="dropdown-basic">
+        {{(user.displayName) ? user.displayName : 'User'}} <span class="caret"></span>
       </button>
-      <ul id="dropdown-alignment" *dropdownMenu class="dropdown-menu dropdown-menu-right"
-          role="menu" aria-labelledby="button-basic">
+      <ul id="dropdown-alignment" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu"
+        aria-labelledby="button-basic">
         <li role="menuitem"><a class="dropdown-item" routerLink="/view-account">View Account</a></li>
         <li role="menuitem"><a class="dropdown-item" href="#">My Reviews</a></li>
         <li class="divider dropdown-divider"></li>
@@ -30,7 +30,7 @@
         </li>
       </ul>
     </div>
-    
+
     <!-- show login button is no user logged in -->
     <button type="button" class="btn btn-info" *ngIf="!authService.userData" routerLink="/login">
       Login
