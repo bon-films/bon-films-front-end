@@ -48,6 +48,33 @@ export class ReviewService {
       })
     });
   }
+
+  editReview(id: number, rating: number, review: string): Observable<Review> {
+    return new Observable<Review>(observer => {
+      this.auth.user.subscribe(user => {
+        user && user.getIdToken().then(token => {
+          this.http.put<Review>(
+            this.baseUrl + `/review/${id}`,
+            { rating, review },
+            httpOptionsWithAuthToken(token),
+          ).subscribe(() => observer.next());
+        })
+      })
+    })
+  }
+
+  deleteReview(id: string): Observable<any> {
+    return new Observable<any>(observer => {
+      this.auth.user.subscribe(user => {
+        user && user.getIdToken().then(token => {
+          this.http.delete(
+            this.baseUrl + `/review/${id}`,
+            httpOptionsWithAuthToken(token)
+          ).subscribe(() => observer.next());
+        })
+      })
+    })
+  }
 }
 
 const httpsOptions = {

@@ -46,7 +46,6 @@ export class CreateReviewComponent implements OnInit {
 
   openAddFilmModal() {
     const initialState = {
-      title: 'Add a New Film'
     };
     this.bsModalRef = this.modalService.show(AddFilmComponent, { initialState });
     this.bsModalRef.content.closeBtnName = 'Close';
@@ -61,9 +60,10 @@ export class CreateReviewComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userId = this.authService.userData.displayName
-      ? this.authService.userData.displayName
-      : "Anonymous User - " + this.authService.userData.uid;
+    // this.userId = this.authService.userData.displayName
+    //   ? this.authService.userData.displayName
+    //   : "Anonymous User - " + this.authService.userData.uid;
+    this.userId = this.authService.userData.uid;
 
     this.reviewService.createReview(
       this.rating.value,

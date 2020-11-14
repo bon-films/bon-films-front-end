@@ -3,7 +3,9 @@
     <h1>All Reviews for {{filmReviews[0].film.title}}</h1>
     <div class="row">
       <div class="col-md-4" *ngFor="let filmReview of filmReviews">
-        <h5><rating [(ngModel)]="filmReview.rating" max=10 readonly="true"></rating> ({{filmReview.rating}})</h5>
+        <h5>
+          <rating [(ngModel)]="filmReview.rating" max=10 readonly="true"></rating> ({{filmReview.rating}})
+        </h5>
         <h6> {{ filmReview.review }} </h6>
         <p>Reviewed by: {{ filmReview.userReviewedId }} | {{filmReview.dateReviewed}}</p>
         <p><a class="btn btn-secondary" routerLink="/review/{{filmReview.id}}" role="button">Review details &raquo;</a>

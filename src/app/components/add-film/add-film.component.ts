@@ -1,8 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Film } from 'src/app/models/film';
 import { FilmService } from 'src/app/services/film/film.service';
 
 @Component({
@@ -33,7 +32,6 @@ export class AddFilmComponent implements OnInit {
   }
 
   hideModalAndReloadComponent() {
-    console.log(this.addFilmForm);
     this.bsModalRef.hide();
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';

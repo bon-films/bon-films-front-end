@@ -20,7 +20,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { ViewAccountComponent } from './components/view-account/view-account.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ReviewService } from './services/review/review.service';
 import { ReviewDetailsComponent } from './components/review-details/review-details.component';
@@ -31,6 +30,8 @@ import { CreateReviewComponent } from './components/create-review/create-review.
 
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { AddFilmComponent } from './components/add-film/add-film.component';
+import { MyReviewsComponent } from './components/my-reviews/my-reviews.component';
+import { EditReviewComponent } from './components/edit-review/edit-review.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,6 @@ import { AddFilmComponent } from './components/add-film/add-film.component';
     ForgotComponent,
     VerifyComponent,
     HomeComponent,
-    ViewAccountComponent,
     NavbarComponent,
     ReviewDetailsComponent,
     ReviewsComponent,
@@ -48,6 +48,8 @@ import { AddFilmComponent } from './components/add-film/add-film.component';
     ReviewsByFilmComponent,
     CreateReviewComponent,
     AddFilmComponent,
+    MyReviewsComponent,
+    EditReviewComponent,
   ],
   imports: [
     BrowserModule,

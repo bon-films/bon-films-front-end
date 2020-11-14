@@ -1,0 +1,29 @@
+<main role="main">
+    <div class="container">
+        <div class="py-5 text-center">
+            <h2><u>My Reviews</u></h2>
+        </div>
+
+        <div class="container-xl" *ngFor="let filmReview of filmReviews">
+            <div *ngIf="filmReview.userReviewedId === authService.userData.uid">
+                <h2>{{ filmReview.title }}</h2>
+                <h5>
+                    <rating [(ngModel)]="filmReview.rating" max=10 readonly="true"></rating>
+                    ({{filmReview.rating}})
+                </h5>
+                <h6> {{ filmReview.review }} </h6>
+                <p>Reviewed on: {{filmReview.dateReviewed}}</p>
+                <div class="row d-flex justify-content-between">
+                    <button class="btn btn-warning" (click)="openEditReviewModal(filmReview)" type="button">
+                        Edit Review
+                    </button>
+                    <button class="btn btn-danger" (click)="deleteReview(filmReview.id)" type="button">
+                        Delete Review
+                    </button>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+</main>
