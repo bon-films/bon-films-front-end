@@ -2,11 +2,11 @@ import { Review } from './review';
 
 export interface Film {
     id: number;
-    title: String;
-    genre: String;
-    studio: String;
-    director: String;
-    topBilling: String;
-    synopsis: String;
+    title: string;
+    genre: string;
+    studio: string;
+    director: string;
+    topBilling: string;
+    synopsis: string;
     reviews: Review[];
 }

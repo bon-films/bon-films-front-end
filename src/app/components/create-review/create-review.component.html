@@ -21,7 +21,7 @@
                 </div>
 
                 <select class="form-control" formControlName="film">
-                    <option *ngFor="let film of films" [ngValue]="film.id">{{film.title}}</option>
+                    <option *ngFor="let film of films" [ngValue]="film">{{film.title}}</option>
                 </select>
                 <div class="invalid-feedback d-block" *ngIf="film.invalid && film.touched">
                     Please select a rating!
@@ -32,8 +32,10 @@
                 <label for="rating">
                     <h5>Select a Rating:</h5>
                 </label>
-            
-                <h1><rating [max]=10 formControlName="rating"></rating></h1>
+
+                <h1>
+                    <rating [max]=10 formControlName="rating"></rating>
+                </h1>
                 <p *ngIf="rating.value !== ''">({{rating.value}})</p>
                 <div class="invalid-feedback d-block" *ngIf="rating.invalid && rating.touched">
                     Please choose a rating!
@@ -50,10 +52,11 @@
                 </div>
 
             </div>
-        
-            <button [disabled]="createReviewForm.invalid" class="btn btn-lg btn-info btn-block" type="submit">Submit</button>
 
-         </form>
+            <button [disabled]="createReviewForm.invalid" class="btn btn-lg btn-info btn-block"
+                type="submit">Submit</button>
+
+        </form>
 
     </div>
 </main>

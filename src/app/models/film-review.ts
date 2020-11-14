@@ -1,8 +1,8 @@
 export interface FilmReview {
     id: number;
     rating: number;
-    review: String;
-    userReviewedId: String;
-    title: String
+    review: string;
+    userReviewedId: string;
+    title: string
     dateReviewed: Date;
 }

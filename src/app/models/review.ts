@@ -3,8 +3,8 @@ import { Film } from './film';
 export interface Review {
     id: number;
     rating: number;
-    review: String;
-    userReviewedId: String;
+    review: string;
+    userReviewedId: string;
     film: Film;
     dateReviewed: Date;
 }

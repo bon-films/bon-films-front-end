@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Film } from 'src/app/models/film';
+import { FilmService } from 'src/app/services/film/film.service';
 
 @Component({
   selector: 'app-add-film',
@@ -10,13 +11,13 @@ import { Film } from 'src/app/models/film';
   styleUrls: ['./add-film.component.scss']
 })
 export class AddFilmComponent implements OnInit {
-
   addFilmForm: FormGroup;
 
   constructor(
     public bsModalRef: BsModalRef,
     private router: Router,
     private fb: FormBuilder,
+    private filmService: FilmService,
   ) { }
 
   ngOnInit(
@@ -31,16 +32,25 @@ export class AddFilmComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    this.hideModalAndReloadComponent();
-  }
-
   hideModalAndReloadComponent() {
     console.log(this.addFilmForm);
     this.bsModalRef.hide();
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
     this.router.navigateByUrl('/create-review');
+  }
+
+  onSubmit() {
+    this.filmService.createFilm(
+      this.filmTitle.value,
+      this.genre.value,
+      this.studio.value,
+      this.director.value,
+      this.topBilling.value,
+      this.synopsis.value,
+    ).subscribe(() => {
+      this.hideModalAndReloadComponent();
+    });
   }
 
   get filmTitle() {
