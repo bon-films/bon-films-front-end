@@ -332,7 +332,7 @@ const environment = {
         appId: "1:157487377178:web:2bbc0fb4ccae5198895aa3",
         measurementId: "G-4799GQGZ6G"
     },
-    baseUrl: `http://3.222.143.125:8080/api`
+    baseUrl: `https://tonynguyen98.com/api`
 };
 /*
  * For easier debugging in development mode, you can import the following file
