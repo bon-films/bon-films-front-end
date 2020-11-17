@@ -1,6 +1,9 @@
 <main role="main">
   <div class="container">
-    <h1>All Reviews for {{filmReviews[0].film.title}}</h1>
+    <div class="py-5 text-center">
+      <h2><u>All Reviews for {{filmReviews[0].film.title}}</u></h2>
+    </div>
+
     <div class="row">
       <div class="col-md-4" *ngFor="let filmReview of filmReviews">
         <h5>
