@@ -35,9 +35,9 @@ export class AuthService {
     try {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       this.ngZone.run(() => {
-        this.router.navigate(['home']);
+        //this.SetUserData(result.user);
+        this.reloadComponent("/home");
       });
-      this.SetUserData(result.user);
     } catch (error) {
       window.alert(error.message);
     }
@@ -47,7 +47,7 @@ export class AuthService {
     try {
       const result = await this.afAuth.createUserWithEmailAndPassword(email, password);
       this.SendVerificationMail();
-      this.SetUserData(result.user);
+      //this.SetUserData(result.user);
     } catch (error) {
       window.alert(error.message);
     }
@@ -81,7 +81,7 @@ export class AuthService {
       this.ngZone.run(() => {
         this.router.navigate(['home']);
       });
-      this.SetUserData(result.user);
+      //this.SetUserData(result.user);
     } catch (error) {
       window.alert(error);
     }
@@ -105,17 +105,23 @@ export class AuthService {
   }
 
   //save userData as an object in AngularFireStore
-  SetUserData(user) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    const userData: FirebaseUser = {
-      uid: user.uid,
-      email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified
-    }
-    return userRef.set(userData, {
-      merge: true
-    })
+  // SetUserData(user) {
+  //   const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
+  //   const userData: FirebaseUser = {
+  //     uid: user.uid,
+  //     email: user.email,
+  //     displayName: user.displayName,
+  //     photoURL: user.photoURL,
+  //     emailVerified: user.emailVerified
+  //   }
+  //   return userRef.set(userData, {
+  //     merge: true
+  //   })
+  // }
+
+  reloadComponent(newUrl: string) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigateByUrl(newUrl);
   }
 }
