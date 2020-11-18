@@ -1,5 +1,11 @@
 <body>
-  <div class="container">
+  <div class="container text-center" *ngIf="!review">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="review">
     <div class="row">
       <div class="container-xl">
         <h1>{{ review.film.title }}</h1>
@@ -7,7 +13,9 @@
         <hr>
 
         <h5><strong>Review</strong></h5>
-        <h6><rating [(ngModel)]="review.rating" max=10 readonly="true"></rating> ({{review.rating}})</h6>
+        <h6>
+          <rating [(ngModel)]="review.rating" max=10 readonly="true"></rating> ({{review.rating}})
+        </h6>
         <p>{{ review.review }}</p>
         <hr>
         <h5><strong>Film Details</strong></h5>
