@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { FilmService } from 'src/app/services/film/film.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {BsModalRef} from 'ngx-bootstrap/modal';
+import {FilmService} from 'src/app/services/film/film.service';
 
 @Component({
   selector: 'app-add-film',
@@ -17,10 +17,34 @@ export class AddFilmComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private filmService: FilmService,
-  ) { }
-
-  ngOnInit(
   ) {
+  }
+
+  get filmTitle() {
+    return this.addFilmForm.get('filmTitle');
+  }
+
+  get genre() {
+    return this.addFilmForm.get('genre');
+  }
+
+  get studio() {
+    return this.addFilmForm.get('studio');
+  }
+
+  get director() {
+    return this.addFilmForm.get('director');
+  }
+
+  get topBilling() {
+    return this.addFilmForm.get('topBilling');
+  }
+
+  get synopsis() {
+    return this.addFilmForm.get('synopsis');
+  }
+
+  ngOnInit() {
     this.addFilmForm = this.fb.group({
       filmTitle: ['', [Validators.required]],
       genre: ['', [Validators.required]],
@@ -49,30 +73,6 @@ export class AddFilmComponent implements OnInit {
     ).subscribe(() => {
       this.hideModalAndReloadComponent();
     });
-  }
-
-  get filmTitle() {
-    return this.addFilmForm.get("filmTitle");
-  }
-
-  get genre() {
-    return this.addFilmForm.get("genre");
-  }
-
-  get studio() {
-    return this.addFilmForm.get("studio");
-  }
-
-  get director() {
-    return this.addFilmForm.get("director");
-  }
-
-  get topBilling() {
-    return this.addFilmForm.get("topBilling");
-  }
-
-  get synopsis() {
-    return this.addFilmForm.get("synopsis");
   }
 
 }

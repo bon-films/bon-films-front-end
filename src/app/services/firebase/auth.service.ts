@@ -1,9 +1,8 @@
-import { Injectable, NgZone } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Router } from '@angular/router';
-import { auth } from 'firebase';
-import { FirebaseUser } from '../../models/firebase-user';
+import {Injectable, NgZone} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {Router} from '@angular/router';
+import {auth} from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +27,12 @@ export class AuthService {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
-    })
+    });
+  }
+
+  get isLoggedIn(): boolean {
+    const user = JSON.parse(localStorage.getItem('user'));
+    return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
   async SignIn(email, password) {
@@ -36,7 +40,7 @@ export class AuthService {
       const result = await this.afAuth.signInWithEmailAndPassword(email, password);
       this.ngZone.run(() => {
         //this.SetUserData(result.user);
-        this.reloadComponent("/home");
+        this.reloadComponent('/home');
       });
     } catch (error) {
       window.alert(error.message);
@@ -57,7 +61,7 @@ export class AuthService {
     return (await this.afAuth.currentUser).sendEmailVerification()
       .then(() => {
         this.router.navigate(['verify-email']);
-      })
+      });
   }
 
   async ForgotPassword(passwordResetEmail) {
@@ -85,11 +89,6 @@ export class AuthService {
     } catch (error) {
       window.alert(error);
     }
-  }
-
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
   async getToken() {

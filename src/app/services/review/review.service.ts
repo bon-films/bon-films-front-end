@@ -1,11 +1,11 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
-import { FilmReview } from 'src/app/models/film-review';
-import { Review } from 'src/app/models/review';
-import { Film } from 'src/app/models/film';
-import { environment } from '../../../environments/environment';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {Observable} from 'rxjs';
+import {FilmReview} from 'src/app/models/film-review';
+import {Review} from 'src/app/models/review';
+import {Film} from 'src/app/models/film';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,8 @@ export class ReviewService {
   constructor(
     private http: HttpClient,
     private auth: AngularFireAuth,
-  ) { }
+  ) {
+  }
 
   getAllReviews(): Observable<FilmReview[]> {
     return this.http.get<FilmReview[]>(this.baseUrl + '/reviews');
@@ -44,8 +45,8 @@ export class ReviewService {
             body,
             httpOptionsWithAuthToken(token),
           ).subscribe(() => observer.next());
-        })
-      })
+        });
+      });
     });
   }
 
@@ -55,12 +56,12 @@ export class ReviewService {
         user && user.getIdToken().then(token => {
           this.http.put<Review>(
             this.baseUrl + `/review/${id}`,
-            { rating, review },
+            {rating, review},
             httpOptionsWithAuthToken(token),
           ).subscribe(() => observer.next());
-        })
-      })
-    })
+        });
+      });
+    });
   }
 
   deleteReview(id: string): Observable<any> {
@@ -71,9 +72,9 @@ export class ReviewService {
             this.baseUrl + `/review/${id}`,
             httpOptionsWithAuthToken(token)
           ).subscribe(() => observer.next());
-        })
-      })
-    })
+        });
+      });
+    });
   }
 }
 

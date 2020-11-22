@@ -1,9 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { FilmReview } from 'src/app/models/film-review';
-import { ReviewService } from 'src/app/services/review/review.service';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {BsModalRef} from 'ngx-bootstrap/modal';
+import {FilmReview} from 'src/app/models/film-review';
+import {ReviewService} from 'src/app/services/review/review.service';
 
 @Component({
   selector: 'app-edit-review',
@@ -20,7 +20,16 @@ export class EditReviewComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private reviewService: ReviewService,
-  ) { }
+  ) {
+  }
+
+  get rating() {
+    return this.editReviewForm.get('rating');
+  }
+
+  get review() {
+    return this.editReviewForm.get('review');
+  }
 
   ngOnInit(): void {
     this.editReviewForm = this.fb.group({
@@ -43,15 +52,7 @@ export class EditReviewComponent implements OnInit {
       this.review.value,
     ).subscribe(() => {
       this.hideModalAndReloadComponent();
-    })
-  }
-
-  get rating() {
-    return this.editReviewForm.get("rating");
-  }
-
-  get review() {
-    return this.editReviewForm.get("review");
+    });
   }
 
 }

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FilmReview } from 'src/app/models/film-review';
-import { ReviewService } from 'src/app/services/review/review.service';
+import {Component, OnInit} from '@angular/core';
+import {FilmReview} from 'src/app/models/film-review';
+import {ReviewService} from 'src/app/services/review/review.service';
 
 @Component({
   selector: 'app-reviews',
@@ -13,7 +13,8 @@ export class ReviewsComponent implements OnInit {
 
   constructor(
     private reviewService: ReviewService,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getAllReviews();

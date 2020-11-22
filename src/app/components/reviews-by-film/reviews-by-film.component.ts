@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Review } from 'src/app/models/review';
-import { FilmService } from 'src/app/services/film/film.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Review} from 'src/app/models/review';
+import {FilmService} from 'src/app/services/film/film.service';
 
 @Component({
   selector: 'app-reviews-by-film',
@@ -15,7 +15,8 @@ export class ReviewsByFilmComponent implements OnInit {
   constructor(
     private filmService: FilmService,
     private route: ActivatedRoute,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getAllReviewsByFilm();

@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 
-import { Film } from 'src/app/models/film';
-import { FilmService } from 'src/app/services/film/film.service';
-import { AuthService } from 'src/app/services/firebase/auth.service';
-import { ReviewService } from 'src/app/services/review/review.service';
-import { AddFilmComponent } from '../add-film/add-film.component';
+import {Film} from 'src/app/models/film';
+import {FilmService} from 'src/app/services/film/film.service';
+import {AuthService} from 'src/app/services/firebase/auth.service';
+import {ReviewService} from 'src/app/services/review/review.service';
+import {AddFilmComponent} from '../add-film/add-film.component';
 
 @Component({
   selector: 'app-create-review',
@@ -30,11 +30,22 @@ export class CreateReviewComponent implements OnInit {
     private fb: FormBuilder,
     public authService: AuthService,
     private router: Router,
-  ) { }
-
-
-  ngOnInit(
   ) {
+  }
+
+  get film() {
+    return this.createReviewForm.get('film');
+  }
+
+  get rating() {
+    return this.createReviewForm.get('rating');
+  }
+
+  get review() {
+    return this.createReviewForm.get('review');
+  }
+
+  ngOnInit() {
     this.getAllFilms();
 
     this.createReviewForm = this.fb.group({
@@ -45,9 +56,8 @@ export class CreateReviewComponent implements OnInit {
   }
 
   openAddFilmModal() {
-    const initialState = {
-    };
-    this.bsModalRef = this.modalService.show(AddFilmComponent, { initialState });
+    const initialState = {};
+    this.bsModalRef = this.modalService.show(AddFilmComponent, {initialState});
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 
@@ -56,7 +66,7 @@ export class CreateReviewComponent implements OnInit {
       data => {
         this.films = data;
       }
-    )
+    );
   }
 
   onSubmit() {
@@ -71,20 +81,8 @@ export class CreateReviewComponent implements OnInit {
       this.userId,
       this.film.value
     ).subscribe(() => {
-      this.router.navigateByUrl("/home")
+      this.router.navigateByUrl('/home');
     });
-  }
-
-  get film() {
-    return this.createReviewForm.get("film");
-  }
-
-  get rating() {
-    return this.createReviewForm.get("rating");
-  }
-
-  get review() {
-    return this.createReviewForm.get("review");
   }
 
 }

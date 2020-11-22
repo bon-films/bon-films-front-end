@@ -1,39 +1,39 @@
 <body class="text-center">
-  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="form-signin">
+  <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>
 
-    <div class="form-group">
-      <div class="invalid-feedback d-block" *ngIf="email.invalid && email.touched">
-        The email is invalid.
-      </div>
-      <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address">
-
-      <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password">
-      <div class="invalid-feedback d-block" *ngIf="password.invalid && password.touched">
-        The password is invalid.
-      </div>
+  <div class="form-group">
+    <div *ngIf="email.invalid && email.touched" class="invalid-feedback d-block">
+      The email is invalid.
     </div>
+    <input class="form-control" formControlName="email" id="inputEmail" placeholder="Email address" type="email">
 
-    <button [disabled]="loginForm.invalid" class="btn btn-lg btn-info btn-block" type="submit">Sign In</button>
-
-    <hr class="dashed">
-
-    <div>
-      <div style="float: left; cursor: pointer;">
-        <span class="text-secondary" routerLink="/forgot-password">Forgot Password?</span>
-      </div>
-      <div style="float: right; cursor: pointer;">
-        <span class="text-secondary" routerLink="/register">Sign Up</span>
-      </div>
-      <br>
+    <input class="form-control" formControlName="password" id="inputPassword" placeholder="Password" type="password">
+    <div *ngIf="password.invalid && password.touched" class="invalid-feedback d-block">
+      The password is invalid.
     </div>
+  </div>
+
+  <button [disabled]="loginForm.invalid" class="btn btn-lg btn-info btn-block" type="submit">Sign In</button>
+
+  <hr class="dashed">
+
+  <div>
+    <div style="float: left; cursor: pointer;">
+      <span class="text-secondary" routerLink="/forgot-password">Forgot Password?</span>
+    </div>
+    <div style="float: right; cursor: pointer;">
+      <span class="text-secondary" routerLink="/register">Sign Up</span>
+    </div>
+    <br>
+  </div>
 
 
-    <hr class="double">
+  <hr class="double">
 
-    <button class="btn btn-lg btn-primary btn-block" type="button" (click)="this.authService.GoogleAuth();">
-      <fa-icon [icon]="faGoogle"></fa-icon>
-      Sign in with Google
-    </button>
-  </form>
+  <button (click)="this.authService.GoogleAuth();" class="btn btn-lg btn-primary btn-block" type="button">
+    <fa-icon [icon]="faGoogle"></fa-icon>
+    Sign in with Google
+  </button>
+</form>
 </body>

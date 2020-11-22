@@ -1,22 +1,22 @@
 <body class="text-center">
-  <form class="form-forgot" [formGroup]="forgotForm" (ngSubmit)="onSubmit()">
-    <h1 class="h3 mb-3 font-weight-normal">Password Reset</h1>
-    <p>Please enter your email address to request a password reset.</p>
+<form (ngSubmit)="onSubmit()" [formGroup]="forgotForm" class="form-forgot">
+  <h1 class="h3 mb-3 font-weight-normal">Password Reset</h1>
+  <p>Please enter your email address to request a password reset.</p>
 
-    <div class="form-group">
-      <div class="invalid-feedback d-block" *ngIf="email.invalid && email.touched">
-        The email is invalid.
-      </div>
-      <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address">
+  <div class="form-group">
+    <div *ngIf="email.invalid && email.touched" class="invalid-feedback d-block">
+      The email is invalid.
     </div>
+    <input class="form-control" formControlName="email" id="inputEmail" placeholder="Email address" type="email">
+  </div>
 
-    <button [disabled]="forgotForm.invalid" class="btn btn-lg btn-info btn-block" type="submit">Reset Password</button>
+  <button [disabled]="forgotForm.invalid" class="btn btn-lg btn-info btn-block" type="submit">Reset Password</button>
 
-    <hr class="dashed">
+  <hr class="dashed">
 
-    <div style="float: right; cursor: pointer;">
-      <span class="text-secondary" routerLink="/login">Return to Login</span>
-    </div>
+  <div style="float: right; cursor: pointer;">
+    <span class="text-secondary" routerLink="/login">Return to Login</span>
+  </div>
 
-  </form>
+</form>
 </body>

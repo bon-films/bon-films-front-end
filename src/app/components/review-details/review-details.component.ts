@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Review } from 'src/app/models/review';
-import { ReviewService } from 'src/app/services/review/review.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Review} from 'src/app/models/review';
+import {ReviewService} from 'src/app/services/review/review.service';
 
 @Component({
   selector: 'app-review-details',
@@ -16,7 +16,8 @@ export class ReviewDetailsComponent implements OnInit {
     private reviewService: ReviewService,
     private route: ActivatedRoute,
     private router: Router,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getReviewById();

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FilmReview } from 'src/app/models/film-review';
-import { AuthService } from 'src/app/services/firebase/auth.service';
-import { ReviewService } from 'src/app/services/review/review.service';
+import {Component, OnInit} from '@angular/core';
+import {FilmReview} from 'src/app/models/film-review';
+import {AuthService} from 'src/app/services/firebase/auth.service';
+import {ReviewService} from 'src/app/services/review/review.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +16,8 @@ export class HomeComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private reviewService: ReviewService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getAllReviews();

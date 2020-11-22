@@ -1,10 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Observable } from 'rxjs';
-import { Film } from 'src/app/models/film';
-import { Review } from 'src/app/models/review';
-import { environment } from '../../../environments/environment';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {Observable} from 'rxjs';
+import {Film} from 'src/app/models/film';
+import {Review} from 'src/app/models/review';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,8 @@ export class FilmService {
   constructor(
     private http: HttpClient,
     private auth: AngularFireAuth,
-  ) { }
+  ) {
+  }
 
   getAllFilms(): Observable<Film[]> {
     return this.http.get<Film[]>(this.baseUrl + `/films`);
@@ -35,7 +36,7 @@ export class FilmService {
       topBilling: topBilling,
       synopsis: synopsis,
       reviews: null,
-    }
+    };
 
     return new Observable<Film>(observer => {
       this.auth.user.subscribe(user => {
@@ -45,9 +46,9 @@ export class FilmService {
             body,
             httpOptionsWithAuthToken(token),
           ).subscribe(() => observer.next());
-        })
-      })
-    })
+        });
+      });
+    });
   }
 
 }

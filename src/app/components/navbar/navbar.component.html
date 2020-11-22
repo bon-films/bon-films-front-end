@@ -10,28 +10,28 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/films">All Films that are Reviewed</a>
       </li>
-      <li class="nav-item" *ngIf="authService.userData">
+      <li *ngIf="authService.userData" class="nav-item">
         <a class="nav-link" routerLink="/create-review">Create a New Review</a>
       </li>
     </ul>
 
     <!-- show dropdown if user logged in -->
-    <div class="btn-group" dropdown *ngIf="authService.userData as user">
-      <button id="button-basic" dropdownToggle type="button" class="btn btn-info dropdown-toggle"
-        aria-controls="dropdown-basic">
+    <div *ngIf="authService.userData as user" class="btn-group" dropdown>
+      <button aria-controls="dropdown-basic" class="btn btn-info dropdown-toggle" dropdownToggle id="button-basic"
+              type="button">
         {{(user.displayName) ? user.displayName : 'User'}} <span class="caret"></span>
       </button>
-      <ul id="dropdown-alignment" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu"
-        aria-labelledby="button-basic">
+      <ul *dropdownMenu aria-labelledby="button-basic" class="dropdown-menu dropdown-menu-right" id="dropdown-alignment"
+          role="menu">
         <li role="menuitem"><a class="dropdown-item" routerLink="/my-reviews">My Reviews</a></li>
         <li class="divider dropdown-divider"></li>
-        <li role="menuitem"><a class="dropdown-item" href="#" (click)="authService.SignOut()">Logout</a>
+        <li role="menuitem"><a (click)="authService.SignOut()" class="dropdown-item" href="#">Logout</a>
         </li>
       </ul>
     </div>
 
     <!-- show login button is no user logged in -->
-    <button type="button" class="btn btn-info" *ngIf="!authService.userData" routerLink="/login">
+    <button *ngIf="!authService.userData" class="btn btn-info" routerLink="/login" type="button">
       Login
     </button>
   </div>

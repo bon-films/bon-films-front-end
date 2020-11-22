@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { FilmReview } from 'src/app/models/film-review';
-import { AuthService } from 'src/app/services/firebase/auth.service';
-import { ReviewService } from 'src/app/services/review/review.service';
-import { EditReviewComponent } from '../edit-review/edit-review.component';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {FilmReview} from 'src/app/models/film-review';
+import {AuthService} from 'src/app/services/firebase/auth.service';
+import {ReviewService} from 'src/app/services/review/review.service';
+import {EditReviewComponent} from '../edit-review/edit-review.component';
 
 @Component({
   selector: 'app-my-reviews',
@@ -21,7 +21,8 @@ export class MyReviewsComponent implements OnInit {
     public authService: AuthService,
     private router: Router,
     private modalService: BsModalService,
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.getAllReviews();
@@ -45,7 +46,7 @@ export class MyReviewsComponent implements OnInit {
     const initialState = {
       filmReview: filmReview,
     };
-    this.bsModalRef = this.modalService.show(EditReviewComponent, { initialState });
+    this.bsModalRef = this.modalService.show(EditReviewComponent, {initialState});
     this.bsModalRef.content.closeBtnName = 'Close';
   }
 

@@ -1,26 +1,26 @@
 <body class="text-center">
-  <form class="form-register" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <h1 class="h3 mb-3 font-weight-normal">Register for an Account</h1>
+<form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="form-register">
+  <h1 class="h3 mb-3 font-weight-normal">Register for an Account</h1>
 
-    <div class="form-group">
-      <div class="invalid-feedback d-block" *ngIf="email.invalid && email.touched">
-        The email is invalid.
-      </div>
-      <input formControlName="email" type="email" id="inputEmail" class="form-control" placeholder="Email address">
-
-      <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password">
-      <div class="invalid-feedback d-block" *ngIf="password.invalid && password.touched">
-        The password is invalid.
-      </div>
+  <div class="form-group">
+    <div *ngIf="email.invalid && email.touched" class="invalid-feedback d-block">
+      The email is invalid.
     </div>
+    <input class="form-control" formControlName="email" id="inputEmail" placeholder="Email address" type="email">
 
-    <button [disabled]="registerForm.invalid" class="btn btn-lg btn-info btn-block" type="submit">Register</button>
-
-    <hr class="dashed">
-
-    <div style="float: right; cursor: pointer;">
-      <span class="text-secondary" routerLink="/login">Return to Login</span>
+    <input class="form-control" formControlName="password" id="inputPassword" placeholder="Password" type="password">
+    <div *ngIf="password.invalid && password.touched" class="invalid-feedback d-block">
+      The password is invalid.
     </div>
+  </div>
 
-  </form>
+  <button [disabled]="registerForm.invalid" class="btn btn-lg btn-info btn-block" type="submit">Register</button>
+
+  <hr class="dashed">
+
+  <div style="float: right; cursor: pointer;">
+    <span class="text-secondary" routerLink="/login">Return to Login</span>
+  </div>
+
+</form>
 </body>

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/firebase/auth.service';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from 'src/app/services/firebase/auth.service';
 
 @Component({
   selector: 'app-verify',
@@ -10,7 +9,8 @@ import { AuthService } from 'src/app/services/firebase/auth.service';
 export class VerifyComponent implements OnInit {
   constructor(
     public authService: AuthService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
   }
