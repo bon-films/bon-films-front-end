@@ -2,7 +2,7 @@
 
 A website that allows users to write reviews on films.
 
-- Single Page Web Application
+- Single Page Web Application using Angular 10
 - Bootstrap 4
 - Firebase Authorization for Email/Password and Google Sign In
 - Netlify for hosting.
