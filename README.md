@@ -1,4 +1,4 @@
-# Bon Films
+# Bon Films Front-End
 
 A website that allows users to write reviews on films.
 
