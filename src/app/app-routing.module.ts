@@ -13,22 +13,19 @@ import { ReviewDetailsComponent } from './components/review-details/review-detai
 import { ReviewsByFilmComponent } from './components/reviews-by-film/reviews-by-film.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 
-import { AuthGuard } from './services/guard/auth.guard';
-import { SecureInnerPagesGuard } from './services/guard/secure-inner-pages.guard';
-
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, /* canActivate: [AuthGuard] */ },
+  { path: 'home', component: HomeComponent, },
   { path: 'reviews', component: ReviewsComponent, },
   { path: 'review/:id', component: ReviewDetailsComponent, },
   { path: 'films', component: FilmsComponent },
   { path: 'film/:id/reviews', component: ReviewsByFilmComponent },
   { path: 'create-review', component: CreateReviewComponent },
   { path: 'my-reviews', component: MyReviewsComponent },
-  { path: 'login', component: LoginComponent, /* canActivate: [SecureInnerPagesGuard] */ },
-  { path: 'register', component: RegisterComponent, /* canActivate: [SecureInnerPagesGuard] */ },
-  { path: 'forgot-password', component: ForgotComponent, /* canActivate: [SecureInnerPagesGuard] */ },
-  { path: 'verify-email', component: VerifyComponent, /* canActivate: [SecureInnerPagesGuard] */ },
+  { path: 'login', component: LoginComponent, },
+  { path: 'register', component: RegisterComponent, },
+  { path: 'forgot-password', component: ForgotComponent, },
+  { path: 'verify-email', component: VerifyComponent, },
 ];
 
 @NgModule({

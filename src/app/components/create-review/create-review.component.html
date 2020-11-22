@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="authService.userData">
     <div class="container">
         <div class="py-5 text-center">
             <h2><u>Write a Review!</u></h2>
@@ -56,5 +56,18 @@
 
         </form>
 
+    </div>
+</main>
+
+<main *ngIf="!authService.userData">
+    <div class="container">
+        <h1 class="text-center">
+            Please login to write a review!
+        </h1>
+        <div class="text-center">
+            <button class="btn btn-lg btn-primary" type="button" routerLink="/login">
+                Login
+            </button>
+        </div>
     </div>
 </main>

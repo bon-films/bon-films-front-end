@@ -1,4 +1,4 @@
-<main role="main">
+<main *ngIf="authService.userData">
     <div class="container text-center" *ngIf="!filmReviews || !authService.userData">
         <div class="spinner-border" role="status">
             <span class="sr-only">Loading...</span>
@@ -31,5 +31,18 @@
             </div>
         </div>
 
+    </div>
+</main>
+
+<main *ngIf="!authService.userData">
+    <div class="container">
+        <h1 class="text-center">
+            Please login to see your reviews!
+        </h1>
+        <div class="text-center">
+            <button class="btn btn-lg btn-primary" type="button" routerLink="/login">
+                Login
+            </button>
+        </div>
     </div>
 </main>
