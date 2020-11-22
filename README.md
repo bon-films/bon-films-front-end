@@ -4,7 +4,7 @@ A website that allows users to write reviews on films.
 
 - Single Page Web Application using Angular 10
 - Styling using Bootstrap 4
-- Dependency Inject with Angular Services
+- Dependency Injection with Angular Services
 - Firebase Authorization for Email/Password and Google Sign In
 - Netlify for hosting.
 
