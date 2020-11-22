@@ -6,7 +6,7 @@ A website that allows users to write reviews on films.
 - Styling using Bootstrap 4
 - Dependency Injection with Angular Services
 - Firebase Authorization for Email/Password and Google Sign In
-- Netlify for hosting.
+- Netlify for hosting
 
 # Visit the website:
 
